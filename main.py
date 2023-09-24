@@ -14,7 +14,8 @@ async def solution(req: OrdersRequest):
 
 def process_orders(orders, criterion) -> float:
     return sum(order.price * order.quantity
-               for order in orders if order.status == criterion)
+               for order in orders
+               if criterion == "all" or order.status == criterion)
 
 
 @app.exception_handler(RequestValidationError)

@@ -9,6 +9,13 @@ class OrderStatus(str, Enum):
     canceled = "canceled"
 
 
+class Criterion(str, Enum):
+    all = "all"
+    completed = "completed"
+    pending = "pending"
+    canceled = "canceled"
+
+
 class Order(BaseModel):
     id: int
     item: str
@@ -19,4 +26,4 @@ class Order(BaseModel):
 
 class OrdersRequest(BaseModel):
     orders: List[Order]
-    criterion: OrderStatus
+    criterion: Criterion
